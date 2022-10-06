@@ -1,33 +1,29 @@
 /* Project name : movie-web */
-/* #6.0 */
+/* #6.3 */
  
 import { useState, useEffect } from "react";
 
-function App() {
+function Hello(){
+  useEffect(()=>{
+    console.log("created");
+    return() => console.log("destroyed"); // clean up function : 컴포넌트가 destrroy될 때 특정 코드가 작동함.
+  },[])
 
-  const [counter, setCounter] = useState(0);
-  const [keyword, setKeyword] = useState("");
-  const onClick = () => setCounter((prev) => prev+1);
-  const change = (event)=>{
-    setKeyword(event.target.value);
+  return(
+    <h1>Hello!</h1>
+  )
+}
+
+function App() {
+  const [showing, setShowing] = useState(true);
+  const clickEvent = () => {
+    setShowing((prev) => !prev);
   }
 
-  useEffect(()=> {
-    console.log("I run when keyword change")
-  },[keyword])  // keyword가 변화할 때만 작동. [ ] 안에는 지켜볼 것을 넣기. "~를 지켜봐"
-  useEffect(()=> {
-    console.log("I run when counter change")
-  },[counter])
-  useEffect(()=>{
-    console.log("I run when keyword or counter")
-  }, [keyword, counter])
-
-  return (
+  return(
     <div>
-      <input type="text" onChange={change} placeholder="Search here..."/>
-      <h1> Welcome back!!! </h1>
-      <button onClick={onClick}>Click me</button>
-      <span> Total click : {counter}</span>
+      <button onClick={clickEvent}>{showing ? "Hide" : "Show"}</button>
+      {showing ? <Hello/> : null}
     </div>
   )
 }
