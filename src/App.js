@@ -11,7 +11,18 @@ function Hello(){
     console.log("created");
     return destroyFn;   // 컴포넌트가 파괴될 때 createFn이 리턴한 destroyFn을 실행.
   }
-  useEffect(createFn,[]);
+
+  useEffect(()=>{
+    console.log("hi")
+    return () => console.log("bye");
+  })
+
+  useEffect(function(){     // 위 코드와 이 코드를 비교했을 때, 이 방법은 잘 쓰지않음.
+    console.log("hi")
+    return (function() {
+      console.log("bye!");
+    })
+  },[]);
 
   return(
     <h1>Hello!</h1>
