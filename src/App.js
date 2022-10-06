@@ -1,13 +1,17 @@
 /* Project name : movie-web */
-/* #6.3 */
+/* #6.4 clean up*/
  
 import { useState, useEffect } from "react";
 
 function Hello(){
-  useEffect(()=>{
+  function destroyFn() {
+    console.log("bye");
+  }
+  function createFn() {
     console.log("created");
-    return() => console.log("destroyed"); // clean up function : 컴포넌트가 destrroy될 때 특정 코드가 작동함.
-  },[])
+    return destroyFn;   // 컴포넌트가 파괴될 때 createFn이 리턴한 destroyFn을 실행.
+  }
+  useEffect(createFn,[]);
 
   return(
     <h1>Hello!</h1>
