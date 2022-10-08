@@ -1,29 +1,31 @@
 /* Project name : movie-web */
-/* #6.4 clean up */
+/* #7.1 toDo */
  
 import { useState, useEffect } from "react";
 
-function Hello(){
-  useEffect(()=>{
-    console.log("hi")
-    return () => console.log("bye");
-  })
-
-  return(
-    <h1>Hello!</h1>
-  )
-}
-
 function App() {
-  const [showing, setShowing] = useState(true);
-  const clickEvent = () => {
-    setShowing((prev) => !prev);
+  const [todo, setTodo] = useState([]);   // todo list
+  const [text, setText] = useState();   // text = todo
+  const changeEvent = (event) => {
+    setText(event.target.value);
+  }
+  const submitEvent = (event) => {  // submit 이벤트
+    event.preventDefault();
+    if(text === "") {
+      return;
+    }
+    setText("");
+    setTodo((currentArray) => [text, ...currentArray])
   }
 
-  return(
-    <div>
-      <button onClick={clickEvent}>{showing ? "Hide" : "Show"}</button>
-      {showing ? <Hello/> : null}
+
+  return (
+    <div>  
+      <h1>My to do list ({todo.length}) </h1>
+      <form onSubmit={submitEvent}>
+        <input type="text" onChange={changeEvent} value={text} placeholder="Write your to do..."/>
+        <button>Add</button>
+      </form>
     </div>
   )
 }
