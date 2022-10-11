@@ -1,7 +1,7 @@
 /* Project name : movie-web */
 /* #7.1 toDo */
  
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function App() {
   const [todo, setTodo] = useState([]);   // todo list
@@ -15,7 +15,7 @@ function App() {
       return;
     }
     setText("");
-    setTodo((currentArray) => [text, ...currentArray])
+    setTodo((currentArray) => [...currentArray, text])
   }
 
 
@@ -26,6 +26,8 @@ function App() {
         <input type="text" onChange={changeEvent} value={text} placeholder="Write your to do..."/>
         <button>Add</button>
       </form>
+      <hr />
+      {todo.map((item, index)=><li key={index}>{item}</li>)}
     </div>
   )
 }
