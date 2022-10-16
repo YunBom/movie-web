@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Movie from "C:/Users/ahybi/movie-web/src/components/Movie";
 
+// 영화 진흥위원회 API 주소 https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do
 function Home(){
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState([]);
@@ -10,6 +11,7 @@ function Home(){
         fetch(url)
         .then((response)=>response.json())
         .then((json)=> {
+            console.log(json);
             setMovies(json.movieListResult.movieList);
             setLoading(false);
         });
@@ -22,13 +24,13 @@ function Home(){
             <h1>2022 영화목록</h1>
             {movies.map((movie)=>
             <Movie 
+                movieCd={movie.movieCd}
                 movieNm={movie.movieNm} 
                 openDt={movie.openDt} 
                 genreAlt={movie.genreAlt}/>
             )}
         </div>
         }
-        
         </div>
     )
 }

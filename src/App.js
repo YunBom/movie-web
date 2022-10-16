@@ -18,7 +18,7 @@ import {
     return (
       <Router>
         <Switch>
-          <Route path="/movie">
+          <Route path="/movie/:movieCd">  {/* movieCd 말고 x나 y를 써줘도 상관없음. 그저 변수가 있다는 것만 알리면 됨. */}
             <Detail />
           </Route>
           <Route path="/">
