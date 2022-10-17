@@ -1,0 +1,11 @@
+{
+  "main.js": "/movie-web/static/js/main.958a5bfb.chunk.js",
+  "main.js.map": "/movie-web/static/js/main.958a5bfb.chunk.js.map",
+  "static/js/1.abac995b.chunk.js": "/movie-web/static/js/1.abac995b.chunk.js",
+  "static/js/1.abac995b.chunk.js.map": "/movie-web/static/js/1.abac995b.chunk.js.map",
+  "runtime~main.js": "/movie-web/static/js/runtime~main.8e6be887.js",
+  "runtime~main.js.map": "/movie-web/static/js/runtime~main.8e6be887.js.map",
+  "index.html": "/movie-web/index.html",
+  "precache-manifest.710a6695d34888f6cbad525843486dd3.js": "/movie-web/precache-manifest.710a6695d34888f6cbad525843486dd3.js",
+  "service-worker.js": "/movie-web/service-worker.js"
+}
