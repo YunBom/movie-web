@@ -1,6 +1,6 @@
 /* Project name : movie-web */
-/* #7.5 Movie app */
-
+/* #7.6 Movie app */
+// package.json 참고. 터미널에 [ npm run deploy ] 적으면 io 페이지에 업로드
 //https://reactrouter.com/en/main/start/overview
 
 import React from "react";
@@ -18,7 +18,7 @@ import {
     return (
       <Router>
         <Switch>
-          <Route path="/movie/:movieCd">  {/* movieCd 말고 x나 y를 써줘도 상관없음. 그저 변수가 있다는 것만 알리면 됨. */}
+          <Route path="/movie/:movieCd">
             <Detail />
           </Route>
           <Route path="/">

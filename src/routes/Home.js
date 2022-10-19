@@ -1,5 +1,8 @@
+// 깃허브 업로드 npm run deploy
+
 import React, { useState, useEffect } from "react";
-import Movie from "C:/Users/ahybi/movie-web/src/components/Movie";
+import Movie from "../components/Movie";
+import styles from "../components/Movie.module.css";
 
 // 영화 진흥위원회 API 주소 https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do
 function Home(){
@@ -11,7 +14,6 @@ function Home(){
         fetch(url)
         .then((response)=>response.json())
         .then((json)=> {
-            console.log(json);
             setMovies(json.movieListResult.movieList);
             setLoading(false);
         });
@@ -20,15 +22,17 @@ function Home(){
     return (
         <div>
         {loading ? <h1>Loading...</h1> : 
-        <div>
+        <div className={styles.body}>
             <h1>2022 영화목록</h1>
-            {movies.map((movie)=>
-            <Movie 
-                movieCd={movie.movieCd}
-                movieNm={movie.movieNm} 
-                openDt={movie.openDt} 
-                genreAlt={movie.genreAlt}/>
-            )}
+            <div className={styles.moviePart}>
+                {movies.map((movie)=>
+                <Movie
+                    movieCd={movie.movieCd}
+                    movieNm={movie.movieNm} 
+                    openDt={movie.openDt} 
+                    genreAlt={movie.genreAlt}/>
+                )}
+            </div>
         </div>
         }
         </div>
