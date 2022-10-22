@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Movie from "../components/Movie";
-import styles from "../components/Movie.module.css";
+import "../components/Movie.css";
 
 // 영화 진흥위원회 API 주소 https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do
 function Home(){
@@ -21,20 +21,20 @@ function Home(){
 
     return (
         <div>
-        {loading ? <h1>Loading...</h1> : 
-        <div className={styles.body}>
-            <h1>2022 영화목록</h1>
-            <div className={styles.moviePart}>
-                {movies.map((movie)=>
-                <Movie
-                    movieCd={movie.movieCd}
-                    movieNm={movie.movieNm} 
-                    openDt={movie.openDt} 
-                    genreAlt={movie.genreAlt}/>
-                )}
+            {loading ? <h1 className="loading">Loading...</h1> : 
+            <div className="container arrayCenter">
+                <h1 className="header">2022 영화목록</h1>
+                <div className="movies">
+                    {movies.map((movie)=>
+                    <Movie
+                        movieCd={movie.movieCd}
+                        movieNm={movie.movieNm} 
+                        openDt={movie.openDt} 
+                        genreAlt={movie.genreAlt}/>
+                    )}
+                </div>
             </div>
-        </div>
-        }
+            }
         </div>
     )
 }
