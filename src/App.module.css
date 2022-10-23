@@ -1,5 +1,4 @@
-.alignCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.pageText {
+    color : rgb(138, 138, 138);
+
 }
