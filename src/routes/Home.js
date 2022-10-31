@@ -15,11 +15,13 @@ function Home(){
         event.preventDefault();
         setPage(event.target[0].value);
         console.log(event.target[0].value);
+        console.log(page);
         fetch(url)              // 페이지 입력시 페이지 전환
         .then((response)=>response.json())
         .then((json)=> {
             setMovies(json.movieListResult.movieList);
             setLoading(false);
+            console.log(page)
         });
     }
 
@@ -29,6 +31,7 @@ function Home(){
         .then((json)=> {
             setMovies(json.movieListResult.movieList);
             setLoading(false);
+            console.log(page)
         });
     }, [])
 
@@ -36,11 +39,13 @@ function Home(){
         <div>
             {loading ? <h1 className="loading">Loading...</h1> : 
             <div className="container arrayCenter">
-                <h1 className="header">2022 영화목록</h1>
-                <form onSubmit={submitEvent}>
-                    <input type="number" min="1" placeholder="페이지를 입력해주세요"/>
-                    <span className={styles.pageText}> {page} 페이지 </span>
-                </form>
+                <div className="homeHeaderContainer arrayCenter">
+                    <h1 className="header">2022 영화목록</h1>
+                    <form  className={styles.serchPage} onSubmit={submitEvent}>
+                        <input type="number" min="1" placeholder="페이지를 입력해주세요"/>
+                        <span className={styles.pageText}> {page} 페이지 </span>
+                    </form>
+                </div>
                 <div className="movies">
                     {movies.map((movie)=>
                     <Movie

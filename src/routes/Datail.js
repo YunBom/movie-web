@@ -23,7 +23,7 @@ function Detail() {
                 setLoading(false);
             })
     }, []) 
-
+``
     return (
         <div>
             {loading ? <h1>Loading...</h1> :

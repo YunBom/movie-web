@@ -2,7 +2,7 @@ body {
     display:flex;
     align-items: center;
     justify-content: center;
-    background-color :rgb(240, 240, 240)
+    background-color :rgb(240, 240, 240);
 }
 .arrayCenter {
     display : flex;
@@ -26,5 +26,8 @@ body {
 }
 .movieTitle {
     color: rgb(82, 77, 6);
-    
+}
+.homeHeaderContainer {
+    width : 100%;
+    background-color: rgb(221, 242, 247);
 }
